@@ -14,13 +14,13 @@ const Summary = ({expeses , periodName}) => {
   const styles = StyleSheet.create({
     rootContainer: {
       height: height > 600 ? 200 : 150,
-      width: width > 400 ? 300 : 250,
+      width: width > 600 ? 450 : 250,
       backgroundColor: GlobalColors.lighter,
       alignItems: "center",
       justifyContent: "center",
       borderRadius: 15,
       marginVertical: 25,
-      
+      marginHorizontal: 25
     },
     container: {
       margin: 15

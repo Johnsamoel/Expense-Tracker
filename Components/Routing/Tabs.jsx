@@ -1,5 +1,5 @@
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
-
+import { Platform } from "react-native";
 import  { Ionicons } from '@expo/vector-icons';
 
 const Tab = createBottomTabNavigator();
@@ -13,15 +13,18 @@ import GlobalColors from "../../utils/Color";
 
 const Tabs = () => {
 
+const OS = Platform.OS
+
    return (
     <Tab.Navigator
       screenOptions={{
         headerStyle: { backgroundColor: GlobalColors.lighter},
         headerTintColor: GlobalColors.grandientFill,
         headerTitleAlign: "center",
-        tabBarStyle: {backgroundColor: GlobalColors.dark , height: 60  },
+        tabBarStyle: {backgroundColor: GlobalColors.dark , height: OS === 'ios' ? 90 : 60  },
         tabBarActiveBackgroundColor: GlobalColors.lighter,
-        tabBarActiveTintColor: GlobalColors.grandientFill
+        tabBarActiveTintColor: GlobalColors.grandientFill,
+        
       }}
     >
       <Tab.Screen
