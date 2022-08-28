@@ -13,17 +13,18 @@ const Summary = ({expeses , periodName}) => {
 
   const styles = StyleSheet.create({
     rootContainer: {
-      height: height > 600 ? 200 : 150,
-      width: width > 600 ? 450 : 250,
+      height: height > 600 ? 70 : 150,
+      width: width > 600 ? 450 : 390,
       backgroundColor: GlobalColors.lighter,
       alignItems: "center",
-      justifyContent: "center",
-      borderRadius: 15,
+      justifyContent: "space-between",
+      // borderRadius: 15,
+      marginTop: 0,
       marginVertical: 25,
-      marginHorizontal: 25
+      flexDirection: 'row',
     },
     container: {
-      margin: 15
+      margin: 15,
     },
     number: {
         fontSize: 25,

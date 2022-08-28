@@ -10,6 +10,7 @@ import Expenses from "../../Screens/Expenses";
 
 //colors
 import GlobalColors from "../../utils/Color";
+import HeaderIconComponent from "../UI/HeaderIconComponent";
 
 const Tabs = () => {
 
@@ -30,7 +31,8 @@ const OS = Platform.OS
       <Tab.Screen
         name="RecentExpense"
         component={RecentExpenses}
-        options={{ tabBarLabel: "Recent" , tabBarIcon: ({color , size}) => <Ionicons name="timer-outline" size={size} color={color}/> }}
+        options={ ({navigation}) => ( { tabBarLabel: "Recent" , tabBarIcon: ({color , size}) => <Ionicons name="timer-outline" size={size} color={color}/> ,
+         headerRight: ({tintColor }) => { return <HeaderIconComponent color={tintColor} size={24} name='add-circle-outline' onpress={() => {navigation.navigate('ManageExpense')}} /> } }) } 
       />
       <Tab.Screen
         name="AllExpenses"

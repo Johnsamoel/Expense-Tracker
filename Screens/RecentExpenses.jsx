@@ -1,58 +1,38 @@
-import { View , Text , StyleSheet, ScrollView, FlatList, ViewComponent } from 'react-native';
+import { useContext } from 'react';
+import { View , StyleSheet } from 'react-native';
 
-
+// my custom components
 import ExpensesList from '../Components/Expenses/ExpensesList';
 import Summary from '../Components/Expenses/Summary';
 import VirtualizedView from '../Components/UI/VirtualizedView';
 
+// importing context
+import { ExpensesContext } from '../Store/ExpensesContext';
+
+// importing helper functions
+import {getDateMinusDays} from '../utils/DateFunction';
 
 import GlobalColors from '../utils/Color';
 
-const Dummy_Data = [{
-    id: 'e1',
-    desc:'Laptop',
-    amount: 1200.78,
-    date: new Date('2020-12-25')
-},
- {
-        id: 'e5',
-        desc:'ipad',
-        amount: 250.63,
-        date: new Date('2020-12-25')
-    },
-    {
-        id: 'e6',
-        desc:'air pods',
-        amount: 150.78,
-        date: new Date('2020-12-25')
-    },
-    {
-        id: 'e7',
-        desc:'iphone 14',
-        amount: 1250.45,
-        date: new Date('2020-12-25')
-    },
-    {
-        id: 'e8',
-        desc:'iphone 11',
-        amount: 1200,
-        date: new Date('2020-12-25')
-    },
-    {
-        id: 'e15',
-        desc:'a pair of shoes',
-        amount: 134.46,
-        date: new Date('2020-12-25')
-    }
-]
 
-const RecentExpenses = ({expeses , periodName}) => {
+const RecentExpenses = () => {
+
+    const { Expenses } = useContext(ExpensesContext)
+   
+
+    const recentExpenses = Expenses.filter((expense) => {
+        const today = new Date();
+        const date7DaysAgo = getDateMinusDays(today, 7);
+    
+        return (expense.date >= date7DaysAgo) && (expense.date <= today);
+      });
+
     return (
         <View style={styles.rootContainer}>
         <VirtualizedView>
         <View style={styles.rootContainer}>
-         <Summary expeses={Dummy_Data} periodName={'Last 7 Days'}  />
-         <ExpensesList expenses={Dummy_Data} />
+         <Summary expeses={recentExpenses} periodName={'Last 7 Days'}  />
+         <ExpensesList expenses={recentExpenses} />
         </View>
         </VirtualizedView>
         </View>
@@ -63,7 +43,8 @@ const styles = StyleSheet.create({
     rootContainer: {
         flex: 1,
         backgroundColor: GlobalColors.background,
-        alignItems:'center'
+        alignItems:'center',
+
     },
     
 })
