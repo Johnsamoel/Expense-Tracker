@@ -3,6 +3,7 @@ import { FlatList } from "react-native";
 const VirtualizedView = ({children}) => {
     return (
         <FlatList
+        showsVerticalScrollIndicator={false}
         style={{flex:1 }}
       data={[]}
       ListEmptyComponent={null}

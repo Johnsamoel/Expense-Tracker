@@ -1,13 +1,19 @@
-import { Text, View , StyleSheet} from 'react-native';
+import { Text, View , StyleSheet, Pressable} from 'react-native';
+import { LinearGradient } from 'expo-linear-gradient';
+
 import GlobalColors from '../../utils/Color';
 
 import { useWindowDimensions } from 'react-native';
-import { LinearGradient } from 'expo-linear-gradient';
 
-const ExpenseItem = ({expenseName , expense , date}) => {
+import { useNavigation } from '@react-navigation/native';
+
+
+const ExpenseItem = ({expenseName , expense , date , id}) => {
+
+  
 
   const { width , height } = useWindowDimensions();
-
+  const Navigation = useNavigation()
 
   const styles = StyleSheet.create({
     rootContainer: {
@@ -56,16 +62,24 @@ const ExpenseItem = ({expenseName , expense , date}) => {
         color: GlobalColors.text,
         fontWeight: 'bold',
         fontSize: 20
+    },
+    pressed: {
+        opacity:0.5
     }
 })
 
 
+  const onpressHandler = () => {
+    Navigation.navigate('ManageExpense' , { expenseId: id })
+  }
+
     return (
+        <Pressable onPress={onpressHandler} android_ripple={true} style={( {pressed}) => pressed && styles.pressed }  >
         <LinearGradient style={styles.rootContainer}  start={{x: 0.7, y: 0}}  colors={['rgba(97, 74, 211, 1)', 'rgba(228, 44, 100, 1)']} end ={ [0 , 0.82]}>
         <View style={styles.rootContainer}>
         <View style={styles.leftContainer}>
         <Text style={styles.name}>{expenseName}</Text>
-        <Text style={styles.date}>{`${date.getFullYear().toString()} / ${date.getMonth().toString()} / ${date.getDay().toString()}`}</Text>
+        <Text style={styles.date}>{`${date.getFullYear()} / ${date.getMonth() + 1} / ${date.getDay()}`}</Text>
         </View>
         
        <View style={styles.Rightcontainer} >
@@ -73,8 +87,10 @@ const ExpenseItem = ({expenseName , expense , date}) => {
        </View>
        </View>
        </LinearGradient>
+       </Pressable>
     );
 };
+
 
 
 export default ExpenseItem;

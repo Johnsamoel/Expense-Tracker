@@ -5,9 +5,11 @@ import ExpenseItem from './ExpenseItem';
 
 
 
-const renderMethod =  ({item}) => <ExpenseItem expenseName={item.desc} expense={item.amount} date={item.date} />
+const renderMethod =  ({item}) => <ExpenseItem expenseName={item.desc} expense={item.amount} date={item.date} id={item.id} />
 
 const ExpensesList = ({expenses}) => {
+
+    console.log(expenses)
 
      const {width } = useWindowDimensions()
     return (
