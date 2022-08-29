@@ -18,7 +18,13 @@ import  GlobalColors  from './utils/Color';
 // Context Provider
 import { ExpensesContextProvider } from './Store/ExpensesContext.jsx';
 
+
+//device info
+import {  getMacAddress } from 'react-native-device-info';
+
 export default function App() {
+
+      console.log( getMacAddress())
   return (
         <>
               <StatusBar style="light" />

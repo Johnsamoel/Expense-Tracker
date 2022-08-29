@@ -11,6 +11,9 @@ import GlobalColors from "../utils/Color";
 
 //my context
 import { ExpensesContext } from '../Store/ExpensesContext';
+
+// my helper http function
+import { storeExpense } from "../utils/Http";
  
 
 const ManageExpense = ( {route , navigation} ) => {
@@ -41,6 +44,7 @@ const ManageExpense = ( {route , navigation} ) => {
     if(expenseId) {
       EditExpenseHandler({id: expenseId , ...data})
     }else{
+      storeExpense({...data})
       AddNewExpenseHandler({id: `e2 + ${Math.random()}` , ...data})
     }
     navigation.goBack()
