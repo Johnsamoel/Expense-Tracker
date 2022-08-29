@@ -1,29 +1,31 @@
-import React from 'react';
-import { Pressable, View , Text , StyleSheet } from 'react-native';
+
+import { Pressable, View , StyleSheet , Text } from 'react-native';
 import GlobalColors from '../../utils/Color';
 
-const ConfirmButton = ({onPress,children}) => {
+// importing icons 
+import  { Ionicons } from '@expo/vector-icons';
+
+const DeleteButton = ({onPress}) => {
     return (
         <Pressable onPress={onPress} style={( {pressed}) => pressed && styles.pressed }>
         <View style={styles.container}>
-        <Text style={styles.text}>{children}</Text>
-       </View>
+        <Ionicons name='trash-outline' color={GlobalColors.text} size={24} />
+        </View>
        </Pressable>
     );
 };
-
 
 const styles = StyleSheet.create({
     container: {
         marginHorizontal:8,
         marginVertical:5,
-        justifyContent:'space-around',
+        justifyContent:'center',
         alignItems:'center',
-        backgroundColor: GlobalColors.success,
+        backgroundColor:GlobalColors.error,
         borderRadius: 15,
         padding: 8,
-        minWidth: 180
-        
+        marginHorizontal: 55,
+        width: 290
     },
     text: {
         fontWeight:'bold',
@@ -35,4 +37,4 @@ const styles = StyleSheet.create({
     }
 })
 
-export default ConfirmButton;
+export default DeleteButton;

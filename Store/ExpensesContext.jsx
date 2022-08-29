@@ -7,42 +7,42 @@ const Dummy_Data = [
         desc:'Visa cost',
         amount: 800,
         date: new Date('2022-08-25')
-    },
+    }
     ,{
     id: 'e1',
     desc:'Laptop',
     amount: 1200.78,
-    date: new Date('2020-07-14')
+    date: new Date('2022-07-14')
 },
  {
         id: 'e5',
         desc:'ipad',
         amount: 250.63,
-        date: new Date('2020-04-14')
+        date: new Date('2022-04-14')
     },
     {
         id: 'e6',
         desc:'air pods',
         amount: 150.78,
-        date: new Date('2020-09-13')
+        date: new Date('2022-08-13')
     },
     {
         id: 'e7',
         desc:'iphone 14',
         amount: 1250.45,
-        date: new Date('2020-10-09')
+        date: new Date('2022-07-09')
     },
     {
         id: 'e8',
         desc:'iphone 11',
         amount: 1200,
-        date: new Date('2020-02-05')
+        date: new Date('2022-07-05')
     },
     {
         id: 'e15',
         desc:'a pair of shoes',
         amount: 134.46,
-        date: new Date('2020-03-17')
+        date: new Date('2022-07-17')
     }
 ]
 
@@ -55,19 +55,21 @@ export const ExpensesContext = createContext({
 });
 
 
-const ReducerFunction = ({state , action}) => {
-
+const ReducerFunction = (state , action) => {
+   
     switch (action.type) {
         case 'Add':
-        return    state.Expenses = [ action.payload  , ...state]
+        return    state = [ action.payload  , ...state]
             break;
+
         case 'Edit':
             const newExpense = action.payload;
-            state.Expenses = state.Expenses.filter((item) => item.id !== action.payload.id);
-        return    state.Expenses = [newExpense , state.Expenses]
+            const newState = state.filter((item) => item.id !== action.payload.id);
+        return    state = [newExpense , ...newState]
             break;
+            
         case 'DELETE':
-        return    state.Expenses = state.Expenses.filter((item) => item.id !== action.payload.id)
+        return    state = state.filter((item) => item.id !== action.payload)
             break;
     
         default:
@@ -75,7 +77,6 @@ const ReducerFunction = ({state , action}) => {
             break;
     }
 
-    return state
 }
 
 
@@ -89,7 +90,7 @@ export const ExpensesContextProvider = ({ children }) => {
     }
 
     const DeleteExpenseHandler = (id) => {
-    Dispatch({type: 'DELETE' , payload: {id}})
+    Dispatch({type: 'DELETE' , payload: id})
     }
 
     const EditExpenseHandler = ({id , desc , amount , date}) => {
