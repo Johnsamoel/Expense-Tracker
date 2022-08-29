@@ -7,6 +7,9 @@ import { useWindowDimensions } from 'react-native';
 
 import { useNavigation } from '@react-navigation/native';
 
+//importing helper function
+import { getFormattedDate } from '../../utils/DateFunction'
+
 
 const ExpenseItem = ({expenseName , expense , date , id}) => {
 
@@ -21,7 +24,6 @@ const ExpenseItem = ({expenseName , expense , date , id}) => {
         flexDirection:'row',
         justifyContent:'space-around',
         alignItems:'center',
-        // backgroundColor: GlobalColors.lighter,
         padding:5,
         margin:5,
         marginHorizontal:15,
@@ -79,7 +81,7 @@ const ExpenseItem = ({expenseName , expense , date , id}) => {
         <View style={styles.rootContainer}>
         <View style={styles.leftContainer}>
         <Text style={styles.name}>{expenseName}</Text>
-        <Text style={styles.date}>{`${date.getFullYear()} / ${date.getMonth() + 1} / ${date.getDay()}`}</Text>
+        <Text style={styles.date}>{getFormattedDate(date)}</Text>
         </View>
         
        <View style={styles.Rightcontainer} >

@@ -14,13 +14,13 @@ const CancelButton = ({onPress}) => {
 
 const styles = StyleSheet.create({
     container: {
-        marginHorizontal:8,
+        marginHorizontal:5,
         marginVertical:5,
         justifyContent:'space-around',
         alignItems:'center',
         backgroundColor:GlobalColors.error,
         borderRadius: 15,
-        padding: 8,
+        padding: 10,
         
     },
     text: {

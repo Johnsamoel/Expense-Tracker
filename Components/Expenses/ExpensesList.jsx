@@ -1,5 +1,5 @@
 
-import { FlatList , ScrollView, StyleSheet , useWindowDimensions, View, VirtualizedList } from 'react-native';
+import { FlatList , StyleSheet , useWindowDimensions, View } from 'react-native';
 import ExpenseItem from './ExpenseItem';
 
 
@@ -8,8 +8,6 @@ import ExpenseItem from './ExpenseItem';
 const renderMethod =  ({item}) => <ExpenseItem expenseName={item.desc} expense={item.amount} date={item.date} id={item.id} />
 
 const ExpensesList = ({expenses}) => {
-
-    console.log(expenses)
 
      const {width } = useWindowDimensions()
     return (
