@@ -82,7 +82,7 @@ After doing the previous step it should be ending by landing page like this.
 
 Here's the Landing page wwhere you should review your last 30 days expenses.
 
-![WhatsApp Image 2022-08-31 at 5 14 15 PM (1)](https://user-images.githubusercontent.com/93879647/187717798-5af6073c-1527-4255-9e3d-a3d6fd19fbb0.jpeg | width="200" height="400")
+`![WhatsApp Image 2022-08-31 at 5 14 15 PM (1)](https://user-images.githubusercontent.com/93879647/187717798-5af6073c-1527-4255-9e3d-a3d6fd19fbb0.jpeg | width=200 height="400")`
 
 In this page you can review all expenses that you have paid.
 
