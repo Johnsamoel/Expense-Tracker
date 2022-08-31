@@ -20,7 +20,7 @@ const Expenses = () => {
         <View style={styles.rootContainer}>
         <VirtualizedView>
         <View style={styles.rootContainer}>
-         <SumContainer expeses={Expenses} periodName={'Last 7 Days'}  />
+         <SumContainer expeses={Expenses} periodName={'All Expenses'}  />
         { Expenses.length > 0 ? <ExpensesList expenses={Expenses} /> :
         <Text style={styles.message}>No Expenses to show</Text>
         }

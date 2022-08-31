@@ -1,10 +1,12 @@
-import { useLayoutEffect , useContext} from "react";
+import { useLayoutEffect , useContext , useState} from "react";
 import { Text, View , StyleSheet, ScrollView} from "react-native";
 
 // my custom buttons
 import ConfirmButton from "../Components/UI/ConfirmButton";
 import DeleteButton from "../Components/UI/DeleteButton";
 import ExpensesForm from '../Components/Expenses/ExpensesFormsData/ExpensesForm';
+import ErrorOverlay from "../Components/UI/ErrorOverlay";
+import LoadingOverlay from "../Components/UI/LoadingOverlay";
 
 // my global colors
 import GlobalColors from "../utils/Color";
@@ -13,10 +15,14 @@ import GlobalColors from "../utils/Color";
 import { ExpensesContext } from '../Store/ExpensesContext';
 
 // my helper http function
-import { storeExpense } from "../utils/Http";
+import { storeExpense , deleteExpense , updateExpense } from "../utils/Http";
  
 
 const ManageExpense = ( {route , navigation} ) => {
+
+  const [isSubmitting, setIsSubmitting] = useState(false);
+
+  const [error, setError] = useState('');
 
   const { DeleteExpenseHandler , AddNewExpenseHandler , EditExpenseHandler , Expenses} = useContext(ExpensesContext)
   
@@ -40,22 +46,58 @@ const ManageExpense = ( {route , navigation} ) => {
   }
 
 
-  const UpdateHandler = (data) => {
-    if(expenseId) {
-      EditExpenseHandler({id: expenseId , ...data})
-    }else{
-      storeExpense({...data})
-      AddNewExpenseHandler({id: `e2 + ${Math.random()}` , ...data})
+  async function DeleteHandler() {
+    setIsSubmitting(true);
+      try {
+        await deleteExpense(expenseId);
+        DeleteExpenseHandler(expenseId);
+      } catch (error) {
+        setError('Could not delete expense - please try again later!');
+        setIsSubmitting(false);
+      }
+    navigation.goBack()
+  }
+
+
+  async function UpdateHandler(expenseData) {
+    setIsSubmitting(true);
+    try {
+      if (IsEditing) {
+        console.log(expenseData , 'manage')
+        EditExpenseHandler({...expenseData , id: expenseId});
+        await updateExpense(expenseId, expenseData);
+      } else {
+        const id = await storeExpense(expenseData);
+        AddNewExpenseHandler({ ...expenseData, id: id });
+      }
+      navigation.goBack();
+    } catch (error) {
+      console.log(error)
+      setError('Could not save data - please try again later!');
+      setIsSubmitting(false);
     }
-    navigation.goBack()
   }
 
+  // async function deleteExpenseHandler() {
+  //   setIsSubmitting(true);
+  //   try {
+  //     await deleteExpense(editedExpenseId);
+  //     expensesCtx.deleteExpense(editedExpenseId);
+  //     navigation.goBack();
+  //   } catch (error) {
+  //     setError('Could not delete expense - please try again later!');
+  //     setIsSubmitting(false);
+  //   }
+  // }
 
-  const DeleteHandler = () => {
-    DeleteExpenseHandler(expenseId)
-    navigation.goBack()
+  if (error && !isSubmitting) {
+    console.log('error overlay')
+    return <ErrorOverlay message={error} />;
   }
 
+  if (isSubmitting) {
+    return <LoadingOverlay />;
+  }
 
   return (
     <ScrollView style={{flex: 1 , backgroundColor: GlobalColors.lighter }}>

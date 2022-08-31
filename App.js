@@ -3,6 +3,7 @@ import { StatusBar } from 'expo-status-bar';
 import { NavigationContainer } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 
+
 // creating routing Stack
 const Stack = createNativeStackNavigator();
 
@@ -20,11 +21,11 @@ import { ExpensesContextProvider } from './Store/ExpensesContext.jsx';
 
 
 //device info
-import {  getMacAddress } from 'react-native-device-info';
+// import DeviceInfo from 'react-native-device-info';
 
 export default function App() {
 
-      console.log( getMacAddress())
+  
   return (
         <>
               <StatusBar style="light" />
