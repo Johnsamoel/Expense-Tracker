@@ -90,7 +90,7 @@ In this page you can review all expenses that you have paid.
 
 Here's a quick test to show how far is this app responsive for all devices
 
-<img src='https://user-images.githubusercontent.com/93879647/187718448-90406a4b-acac-4b6b-84c1-3f6a087ad528.jpeg' alt='responsive' height='450' width='250' />
+<img src='https://user-images.githubusercontent.com/93879647/187718448-90406a4b-acac-4b6b-84c1-3f6a087ad528.jpeg' alt='responsive' height='450' width='400' />
 
 
 <!-- CONTACT -->
