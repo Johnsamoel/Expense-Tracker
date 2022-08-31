@@ -63,7 +63,6 @@ const ManageExpense = ( {route , navigation} ) => {
     setIsSubmitting(true);
     try {
       if (IsEditing) {
-        console.log(expenseData , 'manage')
         EditExpenseHandler({...expenseData , id: expenseId});
         await updateExpense(expenseId, expenseData);
       } else {
@@ -72,26 +71,13 @@ const ManageExpense = ( {route , navigation} ) => {
       }
       navigation.goBack();
     } catch (error) {
-      console.log(error)
       setError('Could not save data - please try again later!');
       setIsSubmitting(false);
     }
   }
 
-  // async function deleteExpenseHandler() {
-  //   setIsSubmitting(true);
-  //   try {
-  //     await deleteExpense(editedExpenseId);
-  //     expensesCtx.deleteExpense(editedExpenseId);
-  //     navigation.goBack();
-  //   } catch (error) {
-  //     setError('Could not delete expense - please try again later!');
-  //     setIsSubmitting(false);
-  //   }
-  // }
 
   if (error && !isSubmitting) {
-    console.log('error overlay')
     return <ErrorOverlay message={error} />;
   }
 

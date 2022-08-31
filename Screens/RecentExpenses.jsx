@@ -27,16 +27,16 @@ const RecentExpenses = () => {
 
     useEffect(() => {
       async function getExpenses() {
+        setIsFetching(true);
         try {
           const expenses = await fetchExpenses();
           setExpenses(expenses);
         } catch (error) {
           setError('Could not fetch expenses!');
         }
-
-        setIsFetching(false)
+        setIsFetching(false);
       }
-        
+  
       getExpenses();
     }, []);
 

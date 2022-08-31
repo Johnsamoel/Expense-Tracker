@@ -24,7 +24,6 @@ const ReducerFunction = (state , action) => {
             break;
 
         case 'Edit':
-            console.log(action.payload.id)
             const newExpense = action.payload;
             const newState = state.filter((item) => item.id !== action.payload.id);
         return  state = [newExpense , ...newState]  
@@ -52,6 +51,7 @@ export const ExpensesContextProvider = ({ children }) => {
     }
 
     const setExpenses = (expenses) => {
+    
         Dispatch({ type: 'SET', payload: expenses });
     }
 
