@@ -82,7 +82,7 @@ After doing the previous step it should be ending by landing page like this.
 
 Here's the Landing page wwhere you should review your last 30 days expenses.
 
-<img src='https://user-images.githubusercontent.com/93879647/187717798-5af6073c-1527-4255-9e3d-a3d6fd19fbb0.jpeg' alt='landing' height='350' width='400' />
+<img src='https://user-images.githubusercontent.com/93879647/187717798-5af6073c-1527-4255-9e3d-a3d6fd19fbb0.jpeg' alt='landing' height='350' width='300' />
 
 In this page you can review all expenses that you have paid.
 
