@@ -86,12 +86,11 @@ Here's the Landing page wwhere you should review your last 30 days expenses.
 
 In this page you can review all expenses that you have paid.
 
-![WhatsApp Image 2022-08-31 at 5 14 15 PM](https://user-images.githubusercontent.com/93879647/187718077-0003c473-a6dd-4489-8edb-16b6e5200f58.jpeg | width=100 )
-
+<img src='https://user-images.githubusercontent.com/93879647/187718077-0003c473-a6dd-4489-8edb-16b6e5200f58.jpeg' alt='all expenses' height='450' width='250' />
 
 Here's a quick test to show how far is this app responsive for all devices
 
-![WhatsApp Image 2022-08-31 at 5 14 14 PM](https://user-images.githubusercontent.com/93879647/187718448-90406a4b-acac-4b6b-84c1-3f6a087ad528.jpeg | height = 300)
+<img src='https://user-images.githubusercontent.com/93879647/187718077-0003c473-a6dd-4489-8edb-16b6e5200f58.jpeg' alt='responsive' height='450' width='250' />
 
 
 <!-- CONTACT -->
