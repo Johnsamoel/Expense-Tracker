@@ -82,16 +82,16 @@ After doing the previous step it should be ending by landing page like this.
 
 Here's the Landing page wwhere you should review your last 30 days expenses.
 
-![WhatsApp Image 2022-08-31 at 5 14 15 PM (1)](https://user-images.githubusercontent.com/93879647/187717798-5af6073c-1527-4255-9e3d-a3d6fd19fbb0.jpeg)
+![WhatsApp Image 2022-08-31 at 5 14 15 PM (1)](https://user-images.githubusercontent.com/93879647/187717798-5af6073c-1527-4255-9e3d-a3d6fd19fbb0.jpeg | height: 300 | width: 200)
 
 In this page you can review all expenses that you have paid.
 
-![WhatsApp Image 2022-08-31 at 5 14 15 PM](https://user-images.githubusercontent.com/93879647/187718077-0003c473-a6dd-4489-8edb-16b6e5200f58.jpeg)
+![WhatsApp Image 2022-08-31 at 5 14 15 PM](https://user-images.githubusercontent.com/93879647/187718077-0003c473-a6dd-4489-8edb-16b6e5200f58.jpeg | height: 300 width: 200)
 
 
 Here's a quick test to show how far is this app responsive for all devices
 
-![WhatsApp Image 2022-08-31 at 5 14 14 PM](https://user-images.githubusercontent.com/93879647/187718448-90406a4b-acac-4b6b-84c1-3f6a087ad528.jpeg)
+![WhatsApp Image 2022-08-31 at 5 14 14 PM](https://user-images.githubusercontent.com/93879647/187718448-90406a4b-acac-4b6b-84c1-3f6a087ad528.jpeg |  height: 300 width: 200)
 
 
 <!-- CONTACT -->
