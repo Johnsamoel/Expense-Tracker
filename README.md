@@ -82,11 +82,11 @@ After doing the previous step it should be ending by landing page like this.
 
 Here's the Landing page wwhere you should review your last 30 days expenses.
 
-<img src='https://user-images.githubusercontent.com/93879647/187717798-5af6073c-1527-4255-9e3d-a3d6fd19fbb0.jpeg' alt='landing' height='450' width='250' />
+<img src='https://user-images.githubusercontent.com/93879647/187717798-5af6073c-1527-4255-9e3d-a3d6fd19fbb0.jpeg' alt='landing' height='500' width='250' />
 
 In this page you can review all expenses that you have paid.
 
-<img src='https://user-images.githubusercontent.com/93879647/187718077-0003c473-a6dd-4489-8edb-16b6e5200f58.jpeg' alt='all expenses' height='450' width='250' />
+<img src='https://user-images.githubusercontent.com/93879647/187718077-0003c473-a6dd-4489-8edb-16b6e5200f58.jpeg' alt='all expenses' height='500' width='250' />
 
 Here's a quick test to show how far is this app responsive for all devices
 
