@@ -1,54 +1,10 @@
 import {  createContext, useReducer } from "react";
 
 
-const Dummy_Data = [
-    {
-        id: 'e23',
-        desc:'Visa cost',
-        amount: 800,
-        date: new Date('2022-08-25')
-    }
-    ,{
-    id: 'e1',
-    desc:'Laptop',
-    amount: 1200.78,
-    date: new Date('2022-07-14')
-},
- {
-        id: 'e5',
-        desc:'ipad',
-        amount: 250.63,
-        date: new Date('2022-04-14')
-    },
-    {
-        id: 'e6',
-        desc:'air pods',
-        amount: 150.78,
-        date: new Date('2022-08-13')
-    },
-    {
-        id: 'e7',
-        desc:'iphone 14',
-        amount: 1250.45,
-        date: new Date('2022-07-09')
-    },
-    {
-        id: 'e8',
-        desc:'iphone 11',
-        amount: 1200,
-        date: new Date('2022-07-05')
-    },
-    {
-        id: 'e15',
-        desc:'a pair of shoes',
-        amount: 134.46,
-        date: new Date('2022-07-17')
-    }
-]
-
 
 export const ExpensesContext = createContext({
   Expenses: [],
+  setExpenses: (expenses) => {},
   AddNewExpenseHandler: () => {},
   DeleteExpenseHandler: () => {},
   EditExpenseHandler: () => {}
@@ -62,10 +18,16 @@ const ReducerFunction = (state , action) => {
         return    state = [ action.payload  , ...state]
             break;
 
+        case 'SET':
+        const inverted = action.payload.reverse();
+        return inverted;
+            break;
+
         case 'Edit':
+            console.log(action.payload.id)
             const newExpense = action.payload;
             const newState = state.filter((item) => item.id !== action.payload.id);
-        return    state = [newExpense , ...newState]
+        return  state = [newExpense , ...newState]  
             break;
             
         case 'DELETE':
@@ -83,10 +45,14 @@ const ReducerFunction = (state , action) => {
 
 export const ExpensesContextProvider = ({ children }) => {
 
-    const [Expenses , Dispatch] = useReducer(ReducerFunction , Dummy_Data);
+    const [Expenses , Dispatch] = useReducer(ReducerFunction , []);
 
     const AddNewExpenseHandler = ({id , desc , amount , date}) => {
         Dispatch({type: 'Add' , payload: {id , desc , amount , date}})
+    }
+
+    const setExpenses = (expenses) => {
+        Dispatch({ type: 'SET', payload: expenses });
     }
 
     const DeleteExpenseHandler = (id) => {
@@ -99,10 +65,11 @@ export const ExpensesContextProvider = ({ children }) => {
 
 
     const ContextValueObj = {
-        Expenses ,
+        Expenses,
         AddNewExpenseHandler,
         DeleteExpenseHandler,
-        EditExpenseHandler
+        EditExpenseHandler,
+        setExpenses
     }
 
    
