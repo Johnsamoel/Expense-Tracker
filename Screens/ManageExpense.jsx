@@ -76,17 +76,6 @@ const ManageExpense = ( {route , navigation} ) => {
     }
   }
 
-  // async function deleteExpenseHandler() {
-  //   setIsSubmitting(true);
-  //   try {
-  //     await deleteExpense(editedExpenseId);
-  //     expensesCtx.deleteExpense(editedExpenseId);
-  //     navigation.goBack();
-  //   } catch (error) {
-  //     setError('Could not delete expense - please try again later!');
-  //     setIsSubmitting(false);
-  //   }
-  // }
 
   if (error && !isSubmitting) {
     return <ErrorOverlay message={error} />;

@@ -51,6 +51,7 @@ export const ExpensesContextProvider = ({ children }) => {
     }
 
     const setExpenses = (expenses) => {
+    
         Dispatch({ type: 'SET', payload: expenses });
     }
 
