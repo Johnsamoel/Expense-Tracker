@@ -24,7 +24,6 @@ const ReducerFunction = (state , action) => {
             break;
 
         case 'Edit':
-            console.log(action.payload.id)
             const newExpense = action.payload;
             const newState = state.filter((item) => item.id !== action.payload.id);
         return  state = [newExpense , ...newState]  

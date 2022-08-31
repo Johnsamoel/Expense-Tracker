@@ -63,7 +63,6 @@ const ManageExpense = ( {route , navigation} ) => {
     setIsSubmitting(true);
     try {
       if (IsEditing) {
-        console.log(expenseData , 'manage')
         EditExpenseHandler({...expenseData , id: expenseId});
         await updateExpense(expenseId, expenseData);
       } else {
@@ -72,7 +71,6 @@ const ManageExpense = ( {route , navigation} ) => {
       }
       navigation.goBack();
     } catch (error) {
-      console.log(error)
       setError('Could not save data - please try again later!');
       setIsSubmitting(false);
     }
@@ -91,7 +89,6 @@ const ManageExpense = ( {route , navigation} ) => {
   // }
 
   if (error && !isSubmitting) {
-    console.log('error overlay')
     return <ErrorOverlay message={error} />;
   }
 
